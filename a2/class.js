@@ -26,9 +26,11 @@ res.render('about', { school: JSON.stringify(school.getSchool()) } );
 
 
 app.get('/about', function(req, res) {
-  var theSchool = school.getSchool();
-  var output = "<p> This	is an <b>important</b> test";
-  res.send(output);
+  var theClass = school.getSchool();
+  res.render('about', {
+      class: theClass.class,
+      teacher: theClass.teacher,
+      code: theClass.code });
 });
 
 
