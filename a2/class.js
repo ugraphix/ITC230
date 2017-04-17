@@ -20,18 +20,16 @@ res.render('home');
 
 var school = require('./lib/school.js');
 
-/*app.get('/about', function(req, res) {
-res.render('about', { school: JSON.stringify(school.getSchool()) } );
-});*/
 
 
 app.get('/about', function(req, res) {
-  var theClass = school.getSchool();
-  res.render('about', {
-      class: theClass.class,
-      teacher: theClass.teacher,
-      code: theClass.code });
+  res.render('about', school.getSchool());
 });
+
+app.get('/get', function(req, res) {
+  res.render('about', school.getSchool());
+});
+
 
 
 
