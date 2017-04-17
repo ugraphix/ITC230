@@ -13,9 +13,9 @@ return schoolSubjects[idx];
 
 //list of items
 let school = [
-    {schoolSubjects: "Math", teacher: "Green", Code:"MATH088"},
-    {schoolSubjects: "Programming", teacher: "Smith", Code:"ITC260"},
-    {schoolSubjects: "Art", teacher: "Watson", Code:"ART101"},
+    {class: "Math", teacher: "Green", Code:"MATH088"},
+    {class: "Programming", teacher: "Smith", Code:"ITC260"},
+    {class: "Art", teacher: "Watson", Code:"ART101"},
 ];
 
 exports.getSchool = function() {

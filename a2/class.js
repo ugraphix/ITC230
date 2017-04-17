@@ -20,15 +20,16 @@ res.render('home');
 
 var school = require('./lib/school.js');
 
-app.get('/about', function(req, res) {
-res.render('about', { school: JSON.stringify(school.getSchool()) } );
-});
-
-
 /*app.get('/about', function(req, res) {
-  var theSchool = school.getSchool();
-  res.render('about', "<p> This is an <b>important</b> test" );
+res.render('about', { school: JSON.stringify(school.getSchool()) } );
 });*/
+
+
+app.get('/about', function(req, res) {
+  var theSchool = school.getSchool();
+  var output = "<p> This	is an <b>important</b> test";
+  res.send(output);
+});
 
 
 
