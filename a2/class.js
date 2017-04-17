@@ -21,8 +21,16 @@ res.render('home');
 var school = require('./lib/school.js');
 
 app.get('/about', function(req, res) {
-res.render('about', { school: school.getSchool() } );
+res.render('about', { school: JSON.stringify(school.getSchool()) } );
 });
+
+
+/*app.get('/about', function(req, res) {
+  var theSchool = school.getSchool();
+  res.render('about', "<p> This is an <b>important</b> test" );
+});*/
+
+
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
