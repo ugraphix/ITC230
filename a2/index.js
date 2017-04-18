@@ -23,7 +23,10 @@ var school = require('./lib/school.js');
 
 
 app.get('/about', function(req, res) {
-  res.render('about');
+  res.render('about', {
+      course: school.course,
+      teacher: school.teacher,
+      code: school.code});
 });
 
 app.get('/get', function(req, res) {
