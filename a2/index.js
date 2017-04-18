@@ -30,7 +30,8 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/get', function(req, res) {
-  res.render('about');
+  /*res.render(get.school());*/
+    console.log(req.query.course);
 });
 
 
