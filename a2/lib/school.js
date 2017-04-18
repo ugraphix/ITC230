@@ -1,34 +1,30 @@
-/*var schoolSubjects = [
- "Algebra",
- "English",
- "Psychology",
- "Art",
- "Programming",
-];
-exports.getSchool = function() {
-var idx = Math.floor(Math.random() * schoolSubjects.length);
-return schoolSubjects[idx];
-};*/
-
-
 //list of items
 let school = [
-    {class: "Math", teacher: "Ms. Green", code:"MATH088"},
-    {class: "Programming", teacher: "Mrs. Smith", code:"ITC260"},
-    {class: "Art", teacher: "Mr. Watson", code:"ART101"},
+    {course: "Math", teacher: "Ms. Green", code:"MATH088"},
+    {course: "Programming", teacher: "Mrs. Smith", code:"ITC260"},
+    {course: "Art", teacher: "Mr. Watson", code:"ART101"},
 ];
 
-exports.getSchool = function() {
-var idx = Math.floor(Math.random() * school.length);
-return school[idx];
-};
 
-/*exports.getSchool = (schoolSubjects) => {
+
+exports.get = (course) => {
     return school.find((item) => {
-    return item.schoolSubjects == schoolSubjects;
+    return item.course == course;
     });
-}*/
+}
+
+exports.delete = (course) => {
+    let oldLength = school.length;
+    var newCourse = school.filter((item) => {
+        return item.course !==course;
+    })
+    school = newCourse;
 
 
-//console.log (get("it"));
-//console.log(books[0].title);
+
+return { deleted: school.length !==oldLength, total: school.length};
+}
+
+
+
+
