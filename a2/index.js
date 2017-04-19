@@ -34,6 +34,9 @@ app.get('/get', function(req, res) {
     console.log(req.query.course);
 });
 
+app.delete('/delete', function(req, res) {
+    console.log(school.delete(params.course));
+});
 
 
 

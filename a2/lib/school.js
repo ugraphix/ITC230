@@ -22,9 +22,5 @@ exports.delete = (course) => {
 
 
 
-return { deleted: school.length !==oldLength, total: school.length};
-}
-
-
-
-
+return { deleted: school.length !==oldLength, total: school.length}
+};
