@@ -29,13 +29,21 @@ app.get('/about', function(req, res) {
       code: school.code});
 });
 
+//get object
 app.get('/get', function(req, res) {
-  /*res.render(get.school());*/
-    console.log(req.query.course);
+    var item = school.get(req.query.course)
+        if (item) {
+        res.send("Searched for " + req.query.course + "\n" + JSON.stringify(item));
+    } else {
+        res.send ("item not found");
+    }
+    
 });
 
-app.delete('/delete', function(req, res) {
-    console.log(school.delete(params.course));
+//delete object
+app.get('/delete', function(req, res) {
+    var result = school.delete(req.query.course)
+    res.send("Deleted course " + req.query.course + "\n" + JSON.stringify(result));
 });
 
 

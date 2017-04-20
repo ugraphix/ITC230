@@ -1,8 +1,8 @@
 //list of items
 let school = [
-    {course: "Math", teacher: "Ms. Green", code:"MATH088"},
-    {course: "Programming", teacher: "Mrs. Smith", code:"ITC260"},
-    {course: "Art", teacher: "Mr. Watson", code:"ART101"},
+    {course: "math", teacher: "Ms. Green", code:"MATH088"},
+    {course: "programming", teacher: "Mrs. Smith", code:"ITC260"},
+    {course: "art", teacher: "Mr. Watson", code:"ART101"},
 ];
 
 
