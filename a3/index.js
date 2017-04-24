@@ -13,9 +13,9 @@ app.get('/courses', function(req, res){
 app.post('/process', function(req, res){
  console.log('Form (from querystring): ' + req.query.form);
  console.log('CSRF token (from hidden form field): ' + req.body._csrf);
- console.log('Course Name (from visible form field): ' + req.body.name);
- console.log('Teacher (from visible form field): ' + req.body.name);
- console.log('ID Number (from visible form field): ' + req.body.name)
+ console.log('Course Name (from visible form field): ' + req.body.course);
+ console.log('Teacher (from visible form field): ' + req.body.teacher);
+ console.log('ID Number (from visible form field): ' + req.body.id)
  res.redirect(303, '/about');
 });
 
