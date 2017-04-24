@@ -4,6 +4,22 @@ var app = express();
 //link body parser for form handling
 app.use(require('body-parser')());
 
+//form
+app.get('/courses', function(req, res){
+
+//redirect form submission
+ res.render('newsletter', { csrf: 'CSRF token goes here' });
+});
+app.post('/process', function(req, res){
+ console.log('Form (from querystring): ' + req.query.form);
+ console.log('CSRF token (from hidden form field): ' + req.body._csrf);
+ console.log('Course Name (from visible form field): ' + req.body.name);
+ console.log('Teacher (from visible form field): ' + req.body.name);
+ console.log('ID Number (from visible form field): ' + req.body.name)
+ res.redirect(303, '/about');
+});
+
+
 
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
