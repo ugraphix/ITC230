@@ -1,11 +1,18 @@
 var express = require('express');
 var app = express();
 
+//link body parser for form handling
+app.use(require('body-parser')());
+
+
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
 .create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+
+
 
 app.set('port', process.env.PORT || 3000);
 
