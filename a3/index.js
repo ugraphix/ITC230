@@ -8,7 +8,7 @@ app.use(require('body-parser')());
 app.get('/courses', function(req, res){
 
 //redirect form submission
- res.render('newsletter', { csrf: 'CSRF token goes here' });
+ res.render('courses', { csrf: 'CSRF token goes here' });
 });
 app.post('/process', function(req, res){
  console.log('Form (from querystring): ' + req.query.form);
@@ -37,7 +37,7 @@ app.set('port', process.env.PORT || 3000);
 
 
 
-app.get('/', function(req, res) {
+app.get('/home', function(req, res) {
 res.render('home');
 });
 
