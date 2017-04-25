@@ -10,7 +10,7 @@
     
 <p><h3>Search, add, or delete a course from your schedule</h3>
 <form class="form-horizontal" role="form"
- action="/process?form=courses" method="POST">
+ action="/get" method="POST">
  <input type="hidden" name="_csrf" value="{{csrf}}">
      <div class="form-group">
      <label for="fieldCourse" class="col-sm-2 control-label">Course Name</label>
@@ -19,26 +19,11 @@
          id="fieldName" name="course">
          </div>
      </div>
-     <div class="form-group">
-     <label for="fieldTeacher" class="col-sm-2 control-label">Teacher</label>
-         <div class="col-sm-4">
-         <input type="text" class="form-control" required
-         id="fieldName" name="teacher">
-         </div>
-     </div>
-    <div class="form-group">
-     <label for="fieldID" class="col-sm-2 control-label">ID Number</label>
-        <div class="col-sm-4">
-        <input type="text" class="form-control" required
-                 id="fieldName" name="id">
-         </div>
-     </div>
+    
 
     <p><div class="form-group">
         <div class="col-sm-offset-2 col-sm-4">
         <button type="submit" class="btn-search">Search</button>
-            <button type="submit" class="btn-add">Add</button>
-            <button type="submit" class="btn-delete">Delete</button>
         </div>
     </div> 
     

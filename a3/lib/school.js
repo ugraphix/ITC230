@@ -1,8 +1,11 @@
 //list of items
 let school = [
-    {course: "math", teacher: "Ms. Green", code:"MATH088"},
-    {course: "programming", teacher: "Mrs. Smith", code:"ITC260"},
-    {course: "art", teacher: "Mr. Watson", code:"ART101"},
+    {course: "math", teacher: "Green", code:"MATH088"},
+    {course: "programming", teacher: "Smith", code:"ITC260"},
+    {course: "art", teacher: "Watson", code:"ART101"},
+    {course: "psychology", teacher: "Farts", code:"PSY101"},
+    {course: "writing", teacher: "Washington", code:"ENG120"},
+    {course: "music", teacher: "Jefferson", code:"MUS210"},
 ];
 
 
@@ -20,7 +23,7 @@ exports.delete = (course) => {
     })
     school = newCourse;
 
-
+ 
 
 return { deleted: school.length !==oldLength, total: school.length}
 };

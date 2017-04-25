@@ -11,11 +11,7 @@ app.get('/courses', function(req, res){
  res.render('courses', { csrf: 'CSRF token goes here' });
 });
 app.post('/process', function(req, res){
- console.log('Form (from querystring): ' + req.query.form);
- console.log('CSRF token (from hidden form field): ' + req.body._csrf);
- console.log('Course Name (from visible form field): ' + req.body.course);
- console.log('Teacher (from visible form field): ' + req.body.teacher);
- console.log('ID Number (from visible form field): ' + req.body.id)
+  console.log('Course Name (from visible form field): ' + req.body.course);
  res.redirect(303, '/about');
 });
 
@@ -60,6 +56,12 @@ app.get('/get', function(req, res) {
     } else {
         res.send ("item not found");
     }
+    
+});
+
+app.post('/get', function(req, res) {
+    var item = school.get(req.body.course)
+    res.render('details', {course: req.body.course, item: item });
     
 });
 
