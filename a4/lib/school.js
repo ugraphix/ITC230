@@ -1,3 +1,4 @@
+//node for testing: npm test test:mocha test/tester.js
 //list of items
 let school = [
     {course: "math", teacher: "Green", code:"MATH088"},
@@ -18,19 +19,29 @@ exports.get = (course) => {
 
 
 exports.delete = (course) => {
-    let oldLength = school.length;
-    var newCourse = school.filter((item) => {
+    const oldLength = school.length;
+    let newCourse = school.filter((item) => {
         return item.course !==course;
-    })
+    });
     school = newCourse;
 
- 
-
-return { deleted: school.length !==oldLength, total: school.length}
+    return { deleted: oldLength !==school.length, total: school.length};
 };
 
 exports.add = (newcourse) => {
+    const oldLength = school.length;
   //no duplicates, add course - makes sure its not in array
-    var item = this.get(newcourse.course);
+    //search courses
+    let item = this.get(newcourse.course);
+    if (item) { // course already exists
+    } else {
+        school.push(newcourse);
+    }
+
     
+  return { added: oldLength !==school.length, total: school.length};  
 };
+
+var newCourse = {course: "math", teacher: "Green", code:"MATH088"};
+console.log(this.add(newCourse))
+
