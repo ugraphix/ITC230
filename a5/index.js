@@ -2,7 +2,9 @@
 var express = require('express');
 var app = express();
 
-
+app.listen(app.get('port'), function() {
+console.log('Express started'); 
+});
 
 //link body parser for form handling
 app.use(require("body-parser").urlencoded({extended: true}));
