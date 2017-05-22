@@ -1,0 +1,14 @@
+
+<html>
+<body>
+  <h2>Details for {{course}}</h2>
+  {{#if item}}
+    <li>Course: {{ item.course }}
+    <li>Teacher: {{ item.teacher }}
+    <li>Code: {{ item.code }}
+    <ul><input type="button" onclick="location.href='delete?course={{course}}';" value="Delete" /></ul>
+  {{else}}
+    not found
+  {{/if}}
+</body>
+</html> 
