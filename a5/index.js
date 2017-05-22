@@ -1,13 +1,22 @@
 
 var express = require('express');
 var app = express();
+app.set('port', process.env.PORT || 3000);
 
-app.listen(app.get('port'), function() {
-console.log('Express started'); 
-});
+var school = require('./lib/school.js');
+
 
 //link body parser for form handling
 app.use(require("body-parser").urlencoded({extended: true}));
+
+app.use(express.static('public'));
+
+// set up handlebars view engine
+var handlebars = require('express-handlebars')
+.create({ defaultLayout:'main' });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 
 //form
 app.get('/courses', function(req, res){
@@ -20,34 +29,18 @@ app.post('/process', function(req, res){
  res.redirect(303, '/about');
 });
 
-
-
-// set up handlebars view engine
-var handlebars = require('express-handlebars')
-.create({ defaultLayout:'main' });
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
-
-
-
-
-app.set('port', process.env.PORT || 3000);
-
-
-
-
-
-
-app.get('/home', function(req, res) {
-res.render('home');
+//a page that displays a list of courses
+app.get('/', function(req, res) {
+res.render('home', {courses: school.getAll()});
 });
 
-var school = require('./lib/school.js');
+//a page that searches for courses
+app.get('/search', function(req, res) {
+res.render('search');
+});
 
 
-
-
-
+//the about page
 app.get('/about', function(req, res) {
   res.render('about', {
       course: school.course,
@@ -58,12 +51,8 @@ app.get('/about', function(req, res) {
 //get object
 app.get('/get', function(req, res) {
     var item = school.get(req.query.course)
-        if (item) {
-        res.send("Searched for " + req.query.course + "\n" + JSON.stringify(item));
-    } else {
-        res.send ("item not found");
-    }
-    
+     res.render('details', {course: req.query.course, item: item });
+          
 });
 
 app.post('/get', function(req, res) {
@@ -90,4 +79,8 @@ app.use(function(err, req, res, next){
 console.error(err.stack);
 res.status(500);
 res.render('500');
+});
+
+app.listen(app.get('port'), function() {
+    console.log('Express started');    
 });

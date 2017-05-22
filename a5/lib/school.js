@@ -7,17 +7,21 @@ let school = [
     {course: "psychology", teacher: "Farts", code:"PSY101"},
     {course: "writing", teacher: "Washington", code:"ENG120"},
     {course: "music", teacher: "Jefferson", code:"MUS210"},
-];
+]; 
 
+//function to get all courses
+exports.getAll = () => {
+    return school;
+}
 
-
+//function to get a course 
 exports.get = (course) => {
     return school.find((item) => {
     return item.course == course;
     });
 }
 
-
+//function to delete a course
 exports.delete = (course) => {
     const oldLength = school.length;
     let newCourse = school.filter((item) => {
@@ -28,6 +32,7 @@ exports.delete = (course) => {
     return { deleted: oldLength !==school.length, total: school.length};
 };
 
+//function to add a new course
 exports.add = (newcourse) => {
     const oldLength = school.length;
   //no duplicates, add course - makes sure its not in array
