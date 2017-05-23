@@ -4,9 +4,8 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 
 var school = require('./lib/school.js');
+var Course = require("./models/course.js")
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://<graciebikes>:<cheeseme11>@ds137101.mlab.com:37101/itc230_database');
 
 //link body parser for form handling
 app.use(require("body-parser").urlencoded({extended: true}));
@@ -33,7 +32,9 @@ app.post('/process', function(req, res){
 
 //a page that displays a list of courses
 app.get('/', function(req, res) {
-res.render('home', {courses: school.getAll()});
+    Course.find((err, results) => {
+        res.render('home', {courses: results});
+    });
 });
 
 //a page that searches for courses
@@ -52,15 +53,15 @@ app.get('/about', function(req, res) {
 
 //get object
 app.get('/get', function(req, res) {
-    var item = school.get(req.query.course)
-     res.render('details', {course: req.query.course, item: item });
-          
+    Course.findOne({course: req.query.course}, (err, result) => {
+       res.render('details', {course: req.query.course, item: result });
+    });          
 });
 
 app.post('/get', function(req, res) {
-    var item = school.get(req.body.course)
-    res.render('details', {course: req.body.course, item: item });
-    
+    Course.findOne({course: req.body.course}, (err, result) => {
+       res.render('details', {course: req.body.course, item: result });
+    });          
 });
 
 //delete object
