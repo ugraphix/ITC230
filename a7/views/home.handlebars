@@ -1,0 +1,38 @@
+
+
+
+
+<title>School Page</title>
+
+
+
+  
+
+
+<h1>Course List</h1>
+
+    
+<p><h3>Here's a list of the courses that are offered:</h3>
+<p> 
+    
+{{#each courses}}
+<li><a href="/get?course={{course}}">{{course}}</a>, {{teacher}}, {{code}}</li>
+    {{/each}}
+
+<p><form class="form-horizontal" role="form"
+ action="/get" method="POST">
+ <input type="hidden" name="_csrf" value="{{csrf}}">
+     <div class="form-group">
+     <label for="fieldCourse" class="col-sm-2 control-label">Enter Course Name</label>
+         <div class="col-sm-4">
+         <input type="text" class="form-control" required
+         id="fieldName" name="course">
+         </div>
+     </div>
+    
+
+    <p><div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+        <button type="submit" class="btn-search">Search</button>
+        </div>
+    </div>

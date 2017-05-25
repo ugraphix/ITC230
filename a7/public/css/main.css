@@ -1,0 +1,54 @@
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    background-color: #111;
+}
+
+#footer  {
+	height:50px;
+	background-color:black;
+	clear:both;
+	line-height:50px;
+	color:white;
+	
+}
+
+
+#footer ul {
+text-align:center;
+}
+
+
+#footer ul li {
+display:inline;
+padding: 0 20px;
+font-size:.875em;
+}
+
+
+#footer ul li a {
+color:#D4E5E5;
+}
+
+
+#footer ul li a:hover {
+color:#5A3C05;
+}
