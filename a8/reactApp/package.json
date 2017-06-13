@@ -1,0 +1,11 @@
+{
+  "name": "a8",
+  "version": "1.0.0",
+  "description": "a8 using SPA and REACT",
+  "main": "main.js",
+  "scripts": {
+    "test": "start": "webpack-dev-server --hot"
+  },
+  "author": "grace eder",
+  "license": "ISC"
+}

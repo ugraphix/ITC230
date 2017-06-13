@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<link href="../public/css/main.css" type="text/css" rel="stylesheet" >
+<style> 
+
+</style>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+    class CourseApp extends React.Component{
+      constructor(props){
+        // Pass props to parent class
+        super(props);
+          
+     this.state = {
+          data: {{{courses}}},
+          filter: "", // search term 
+          curItem: {} // current selected item 
+        };
+      }
+        
+        render() {
+        // Render JSX
+        return <div>
+          <Title/>
+          <ItemList
+              items={this.state.data} 
+              filter={this.state.filter}
+              
+            />
+          </div>;
+      }
+
+    }
+
+          // UI elements
+    const Title = () => {
+        return (
+        <div>
+           <div>
+              <h1>Course List</h1>
+           </div>
+        </div>
+        );
+    }
+    
+    const ItemList = ({items, filter, show}) => {
+      // return items that match search entry field, or all items if no entry
+      const itemNodes = items.map((item) => {
+        if (!filter || item.title.toLowerCase().includes(filter)) { 
+          return <li id={item._id} key={item._id} onClick={show}>{item.title}</li>
+        }
+      });
+      return <ul>{itemNodes}</ul>;
+    }
+
+ ReactDOM.render(<CourseApp />, document.getElementById('root'));
+
+    </script>
+
+
+<p><h2>Search for courses</h2>
+
+<form clase="search" action="">
+  <input type="text" name="search" placeholder="Search..">
+<br><input type="submit" value="Submit">
+</form>
+    
+<form action="">
+  Course:<br>
+  <input type="text" name="coursename" placeholder="Enter course name">
+<br>
+  Teacher:<br>
+  <input type="text" name="teachername" placeholder="Enter teacher name">
+<br>
+  Code:<br>
+  <input type="text" name="codenumber" placeholder="Enter code number">
+  <br>
+  <input type="submit" value="Submit"><input type="reset" value="Reset"><input type="submit" value="Delete">
+</form> 
+
+</body>
+</html>
